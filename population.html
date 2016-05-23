@@ -1,0 +1,30 @@
+<div ng-if="search.results.length <= 0" class="ui icon negative message">
+	  <i class="warning sign icon"></i>
+	  <div class="content">
+		  <div class="header">
+			The country {{ search.text }} does not exist in our dataset.
+		  </div>
+		  <p>You can try another country.</p>
+	  </div>
+</div>
+<div ng-if="timeline.year < 1960" class="ui icon negative message">
+  <i class="warning sign icon"></i>
+  <div class="content">
+	  <div class="header">
+		There are no population data before 1960.
+	  </div>
+	  <p>You can try another year.</p>
+  </div>
+</div>
+<div class="ui one column doubling stackable grid">	
+	<div class="column">
+		<div class="ui segment">
+			<plot type="map_population" val="dataset2"></plot>
+		</div>
+	</div>
+	<div class="column">		
+		<div class="ui segment">			
+			<plot type="scatterPlot" val="dataset2"></plot>
+		</div>
+		
+</div>

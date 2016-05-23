@@ -1,0 +1,44 @@
+<div ng-if="search.results.length <= 0" class="ui icon negative message">
+	  <i class="warning sign icon"></i>
+	  <div class="content">
+		  <div class="header">
+			The country {{ search.text }} does not exist in our dataset.
+		  </div>
+		  <p>You can try another country.</p>
+	  </div>
+    </div>
+<div ng-include src="'tabs.html'" class="ui tabular menu"></div>
+<div class="ui one column doubling stackable grid">
+	<div class="column">
+		<div class="ui segment">
+			<plot type="map" val="dataset1"></plot>
+		</div>
+	</div>
+	<div ng-if="search.medals < 4" class="ui icon warning message">
+	  <i class="trophy icon"></i>
+	  <div class="content">
+		  <div class="header">
+		    {{ search.text }} has only {{ search.medals }} medals
+		  </div>
+		  <p>and therefore does not appear in the stacked bar chart below.</p>
+	  </div>
+    </div>	
+	<div class="column">
+		<div class="ui segment">
+			<plot type="stackedBarChart" val="barchart"></plot>
+		</div>
+	</div>
+</div>
+
+<div class="ui two column doubling stackable grid">	   
+	<div class="column">
+		<div class="ui segment">
+			<plot type="medals_sports" val="dataset1"></plot>
+		</div>
+	</div>
+	<div class="column">
+		<div class="ui segment">
+			<plot type="gen_vis" val="dataset2"></plot>
+		</div>
+	</div>
+</div>

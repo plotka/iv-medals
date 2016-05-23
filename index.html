@@ -1,0 +1,97 @@
+<!doctype html>
+<html ng-app="olympicsApp">
+<head>
+	<title>Summer Olympics</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="css/semantic.min.css" />
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/charts.css" />
+</head>
+<body ng-controller="olympicsCtrl">
+<div class="ui container spaced">
+	<div class="ui menu">
+	  <div class="header item" ng-click="clickCountry()"> 
+		  <img src="imagens/olympic-rings.jpg" >&nbsp;
+		  Summer Olympics
+	  </div>
+	  <a class="item" href="#/"
+	     ng-class="{active: $route.current.menu == 'total'}">
+		  Total Medals
+	  </a>
+	  <a class="item" href="#/population-medals" 
+	  	 ng-class="{active: $route.current.menu == 'population'}">
+		  Population/Medals
+	  </a>
+	  <a class="item" href="#/gdp-medals"
+	     ng-class="{active: $route.current.menu == 'gdp'}">
+		  Medals/GDP/Capita
+	  </a>
+	  <div class="right menu">
+	    <div class="ui search item">
+	      <div class="ui transparent input icon">
+	        <input class="prompt" type="text" 
+			       placeholder="Search for country..." 
+				   ng-model="search.text"
+				   ng-change="search.fn()"
+				   ng-keydown="search.clear($event)"
+				   ng-blur="search.blur()"
+				   ng-focus="search.visible = true"> 
+	        <i class="search link icon"></i>
+	      </div>
+		  <div class="results transition" ng-class="{visible: search.visible}">
+		  	<a class="result" 
+			   ng-repeat="country in countries | filter:search.text"
+			   ng-click="search.click(country)">
+				<div class="content">
+					<div class="title">{{ country }}</div>
+				</div>
+			</a>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- TODO: Remove this START -->
+	<div class="ui buttons tiny fluid">
+	  <button ng-repeat="year in years" 
+	    ng-click="timeline.change(year)"
+		ng-mouseenter="show=true"
+		ng-mouseleave="show=false"
+		ng-init="show=false" 
+	 	class="ui button compact icon">
+		<i class="icon" 
+		   ng-class="timeline.year == year ? 'circle' : 'radio'"></i>
+		   <span ng-if="timeline.year == year || show || $index <= 0 || $index >= years.length - 1">{{ year }}</span>
+	  </button>
+	</div>
+	<p>
+	<!-- TODO: Remove this END -->
+	<div ng-view></div>
+</div>
+<script src="js/d3.min.js"></script>
+<script src="js/d3.tip.js"></script>
+<script src="js/medalhas.js"></script>
+<script src="js/dataset_gdp.js"></script>
+<script src="js/stackedBarDataset.js"></script>
+<script src="js/continents_dataset.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/lineChart.js"></script>
+<script src="js/lineChart_cont.js"></script>
+<script src="js/barChartS.js"></script>
+<script src="js/barChartS_cont.js"></script>
+<script src="js/stackedBarChart.js"></script>
+<script src="js/stackedBarChart_cont.js"></script>
+<script src="js/scatterPlot.js"></script>
+<script src="js/scatterPlot2.js"></script>
+<script src="js/map.js"></script>
+<script src="js/map_continents.js"></script>
+<script src="js/map_population.js"></script>
+<script src="js/map_gdp.js"></script>
+<script src="js/bubbleChart.js"></script>
+<script src="js/d3.geo.projection.js"></script>
+<script src="js/queue.js"></script>
+<script src="js/topojson.js"></script>
+</body>
+</html>
