@@ -1,0 +1,116 @@
+rect {
+  fill: transparent;
+  shape-rendering: crispEdges;
+}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.axisLine {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 2px;
+}
+
+.axis text {
+   font-family: calibri,sans-serif;
+   font-size: 11px;
+}
+
+.legend  {
+   font-family: calibri,sans-serif;
+   font-size: 11px;
+}
+.tooltip {
+    line-height: 1;
+    padding: 10px;
+	font-size: 13px;
+	font-family: calibri,sans-serif;
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+svg {
+   font-family: calibri,sans-serif;
+   font-size: 11px;
+}
+
+
+.ylabel, .xlabel {
+    font-family: calibri, sans-serif;
+    font-size: 12px;
+	color: #BBB;
+	fill: currentColor;
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 10px;
+	font-size: 13px;
+	font-family: calibri,sans-serif;
+    background: rgba(20, 20, 20, 0.6);
+    color: #fff;
+    border-radius: 5px;
+}	
+
+.datapoint:hover{
+	fill: steelblue;
+	r: 5px;
+}
+
+.bar {
+  stroke: white;
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: cornflowerblue ;
+}
+
+.country {
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.graticule {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: .5px;
+}
+
+.graticule.outline {
+  stroke: #333;
+  stroke-opacity: 1;
+  stroke-width: 1.5px;
+}
+
+.tooltip {
+  position: absolute; 
+  text-align: center; 
+  width: 100px;  
+  height: 28px;   
+  padding: 2px; 
+  font: 12px sans-serif;  
+  background: lightsteelblue; 
+  border: 0px;          
+  border-radius: 8px;
+ /*  pointer-events: none;  This line needs to be removed */
+  
+}	
